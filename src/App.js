@@ -1,7 +1,8 @@
 import Firebase from './Firebase'
 import { useEffect, useState } from 'react'
 import StoryPage from './components/StoryPage'
-import './App.css';
+import './App.css'
+import AllStoriesPage from './components/AllStoriesPage';
 
 function App() {
   const [stories, setStories] = useState()
@@ -23,7 +24,7 @@ function App() {
   
   return stories ? (
       <div className="App">
-        <StoryPage story={stories[Math.floor(Math.random() * stories.length)]} />
+        <AllStoriesPage stories={stories} />
       </div>
     ) :
     "loading..."
