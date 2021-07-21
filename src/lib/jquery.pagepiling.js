@@ -344,12 +344,14 @@ import jQuery from 'jquery';
             var sectionToMove;
 
             if(v.yMovement === 'down'){
+                // eslint-disable-next-line
                 sectionToMove = $('.pp-section').map(function(index){
                     if (index < v.destination.index('.pp-section')){
                         return $(this);
                     }
                 });
             }else{
+                // eslint-disable-next-line
                 sectionToMove = $('.pp-section').map(function(index){
                     if (index > v.destination.index('.pp-section')){
                         return $(this);
@@ -385,6 +387,7 @@ import jQuery from 'jquery';
         /**
         * Scrolls the site without anymations (usually used in the background without the user noticing it)
         */
+        // eslint-disable-next-line
         function silentScroll(section, offset){
             if (options.css3) {
                 transformContainer(section, getTranslate3d(), false);
