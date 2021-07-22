@@ -7,6 +7,9 @@ import Container from "@material-ui/core/Container";
 
 
 const StoryPage = ({story}) => {
+    if (story.image === undefined) {
+        story.image = 'public/image_placeholder.png'
+    }
 
     return (
         <Container maxWidth={"sm"}>
@@ -15,17 +18,14 @@ const StoryPage = ({story}) => {
                     <CardMedia
                         sx={{height: 140}}
                         component={"img"}
-                        src={"https://avatars.githubusercontent.com/u/23413346?v=4"}
+                        src={story.image}
+                        alt={story.name + " image"}
                     />
                     <Typography gutterBottom variant="h5" component="div">
-                        Name
+                        {story.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {story.text}
                     </Typography>
                 </CardContent>
             </Card>

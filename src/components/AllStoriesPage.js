@@ -2,7 +2,7 @@ const AllStoriesPage = ({ stories }) => {
     const Thumbnail = ({ story }) => {
         return (
             <div>
-                <img src={story.image} alt={story.name + " image"}/>
+                <img src={story.image} alt={story.name + " image"} className="image" />
                 <h1>{story.name}</h1>
             </div>
 
