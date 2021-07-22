@@ -1,8 +1,14 @@
 import Firebase from './Firebase'
 import { useEffect, useState } from 'react'
-import StoryPage from './components/StoryPage'
 import './App.css'
+
 import AllStoriesPage from './components/AllStoriesPage';
+import About from './components/About';
+import StoryPage from './components/StoryPage';
+
+import $ from 'jquery';
+import './lib/jquery.pagepiling';
+import './lib/jquery.pagepiling.css';
 
 function App() {
   const [stories, setStories] = useState()
@@ -19,12 +25,30 @@ function App() {
           }
         )
   }, [])
-  
-  console.log(stories)
+
+  // initialize pagepiling
+  useEffect(() => {
+    $(function() {
+      $('#pagepiling').pagepiling();
+    });
+  })
   
   return stories ? (
+<<<<<<< HEAD
       <div className="App">
         <StoryPage stories={stories} />
+=======
+      <div id="pagepiling" className="App">
+        <div className="section">
+          <About />
+        </div>
+        <div className="section pp-scrollable ">
+          <AllStoriesPage stories={stories} />
+        </div>
+        <div className="section pp-scrollable">
+          <StoryPage story={stories[Math.floor(Math.random() * stories.length)]} />
+        </div>
+>>>>>>> 802339cd0becaba155eb308881284ffc57eb3517
       </div>
     ) :
     "loading..."
