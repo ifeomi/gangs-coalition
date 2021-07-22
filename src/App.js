@@ -29,23 +29,23 @@ function App() {
     // initialize pagepiling
     useEffect(() => {
       $(function () {
-        $('#pagepiling').pagepiling();
+          $('#pagepiling').pagepiling();
       });
-    })
+  })
 
-    return stories ? (
-        <div id="pagepiling" className="App">
-          <div className="section sec1">
-            <About />
-          </div>
-          <div className="section pp-scrollable ">
-            <AllStoriesPage stories={stories} />
-          </div>
-          <div className="section pp-scrollable">
-            <StoryPage story={stories.filter(function(obj) {
-              return obj.approved
-            })[0]} />
-          </div>
+  return stories ? (
+          <div id="pagepiling" className="App">
+              <div className="section sec1">
+                  <About/>
+              </div>
+              <div className="section pp-scrollable">
+                  <StoryPage story={stories.filter(function(obj) {
+                    return obj.approved
+                  })[0]} />
+              </div>
+              <div className="section pp-scrollable ">
+                    <AllStoriesPage stories={stories}/>
+              </div>
         </div>
       ) :
       "loading..."

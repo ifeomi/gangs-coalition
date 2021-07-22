@@ -13,6 +13,7 @@ const StoryPage = ({story}) => {
 
     return (
         <Container maxWidth={"sm"}>
+            <h1>Sample Story</h1>
             <Card sx={{maxWidth: 345}}>
                 <CardContent>
                     <CardMedia
