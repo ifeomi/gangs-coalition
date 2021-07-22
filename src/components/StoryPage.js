@@ -1,12 +1,14 @@
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+
 
 const StoryPage = ({ story }) => {
 
     return (
-        <div>
-            <img src={story.image} />
-            <h1>{story.name}</h1>
-            <h1>{story.text}</h1>
-        </div>
+        <Button variant="contained" color="primary">
+            Hello World
+        </Button>
     )
 }
 

@@ -24,7 +24,7 @@ function App() {
   
   return stories ? (
       <div className="App">
-        <AllStoriesPage stories={stories} />
+        <StoryPage stories={stories} />
       </div>
     ) :
     "loading..."
