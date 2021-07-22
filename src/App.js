@@ -36,7 +36,7 @@ function App() {
     return stories ? (
             <div id="pagepiling" className="App">
                 <div className="section sec1">
-                   <About/>
+                    <About/>
                 </div>
                 <div className="section pp-scrollable">
                     <StoryPage story={stories.filter(function(obj) {
@@ -44,9 +44,9 @@ function App() {
                     })[0]} />
                 </div>
                 <div className="section pp-scrollable ">
-                      <AllStoriesPage stories={stories}/>
+                    <AllStoriesPage stories={stories}/>
                 </div>
-        </div>
+            </div>
         ) :
         "loading..."
 }
