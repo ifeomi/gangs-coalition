@@ -28,11 +28,11 @@ function App() {
 
     // initialize pagepiling
     useEffect(() => {
-      $(function() {
+      $(function () {
         $('#pagepiling').pagepiling();
       });
     })
-    
+
     return stories ? (
         <div id="pagepiling" className="App">
           <div className="section sec1">
