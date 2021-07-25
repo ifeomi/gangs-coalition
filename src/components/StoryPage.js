@@ -4,11 +4,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Container from "@material-ui/core/Container";
-
+import image_placeholder from '../image_placeholder.png';
 
 const StoryPage = ({story}) => {
+    // set default image if missing
     if (story.image === undefined) {
-        story.image = 'public/image_placeholder.png'
+        story.image = image_placeholder
     }
 
     return (

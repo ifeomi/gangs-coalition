@@ -20,7 +20,11 @@ function App() {
             .get()
             .then((querySnapshot) => {
                     if (querySnapshot.docs) {
-                        setStories(querySnapshot.docs.map(d => d.data()))
+                        setStories(querySnapshot.docs.map(d => {
+                                let story = d.data()
+                                story.id = d.id
+                                return story
+                            }))
                     }
                 }
             )

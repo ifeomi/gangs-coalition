@@ -1,7 +1,7 @@
 const AllStoriesPage = ({ stories }) => {
     const Thumbnail = ({ story }) => {
         return (
-            <div>
+            <div key={story.id}>
                 <img src={story.image} alt={story.name + " image"} className="image" />
                 <h1>{story.name}</h1>
             </div>
