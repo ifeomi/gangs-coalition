@@ -7,7 +7,7 @@ const NewStory = () => {
         db.collection("stories").add({
             name: event.target.name.value,
             text: event.target.text.value,
-            // image: event.target.name.value
+            // TODO: add image url
             approved: false
         })
     }
