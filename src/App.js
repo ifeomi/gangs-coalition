@@ -40,13 +40,17 @@ function App() {
 
     return stories ? (
             <div id="pagepiling" className="App">
-                <div className="section sec1">
+                <div className="section about-section">
                     <About/>
                 </div>
                 <div className="section pp-scrollable">
-                    <StoryPage story={stories.filter(function (obj) {
-                        return obj.approved
-                    })[0]}/>
+                    <StoryPage
+                        story={stories.filter(function (obj) {
+                            return obj.approved
+                        })[0]}
+                        showTitle={true}
+                        showText={true}
+                    />
                 </div>
                 <div className="section pp-scrollable ">
                     <AllStoriesPage stories={stories}/>
