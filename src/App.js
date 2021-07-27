@@ -5,6 +5,7 @@ import './App.css'
 import AllStoriesPage from './components/AllStoriesPage';
 import About from './components/About';
 import StoryPage from './components/StoryPage';
+import NewStory from './components/NewStory';
 
 import $ from 'jquery';
 import './lib/jquery.pagepiling';
@@ -21,10 +22,10 @@ function App() {
             .then((querySnapshot) => {
                     if (querySnapshot.docs) {
                         setStories(querySnapshot.docs.map(d => {
-                                let story = d.data()
-                                story.id = d.id
-                                return story
-                            }))
+                            let story = d.data()
+                            story.id = d.id
+                            return story
+                        }))
                     }
                 }
             )
@@ -43,12 +44,15 @@ function App() {
                     <About/>
                 </div>
                 <div className="section pp-scrollable">
-                    <StoryPage story={stories.filter(function(obj) {
-                      return obj.approved
-                    })[0]} />
+                    <StoryPage story={stories.filter(function (obj) {
+                        return obj.approved
+                    })[0]}/>
                 </div>
                 <div className="section pp-scrollable ">
                     <AllStoriesPage stories={stories}/>
+                </div>
+                <div className="section pp-scrollable ">
+                    <NewStory/>
                 </div>
             </div>
         ) :
