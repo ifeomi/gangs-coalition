@@ -13,7 +13,7 @@ const NewStory = () => {
     }
     return (
         <div>
-            <h1>Register</h1>
+            <h1>Submit your story</h1>
             <div className="reg">
                 <form id="regForm" onSubmit={submitForm}>
                     <label>
