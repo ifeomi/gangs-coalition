@@ -13,11 +13,10 @@ const AllStoriesPage = ({ stories }) => {
 
         return (
             <div key={story.id}>
-                <img src={story.image} alt={story.name + " image"} className="image" />
-                <h1>{story.name}</h1>
+                <StoryPage story={story} showTitle={false} showText={false} />
                 <input type="button" onClick={handleOpen} value="Open Story" />
                 <Modal open={open} onClose={handleClose}>
-                    <StoryPage story={story} />
+                    <StoryPage story={story} showTitle={false} showText={true} />
                 </Modal>
             </div>
         )

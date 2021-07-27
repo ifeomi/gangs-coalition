@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from "@material-ui/core/Container";
 import image_placeholder from '../image_placeholder.png';
 
-const StoryPage = ({story}) => {
+const StoryPage = ({story, showTitle, showText}) => {
     // set default image if missing
     if (story.image === undefined) {
         story.image = image_placeholder
@@ -14,7 +14,9 @@ const StoryPage = ({story}) => {
 
     return (
         <Container maxWidth={"sm"}>
+            {showTitle &&
             <h1>Sample Story</h1>
+            }
             <Card sx={{maxWidth: 345}}>
                 <CardContent>
                     <CardMedia
@@ -26,9 +28,11 @@ const StoryPage = ({story}) => {
                     <Typography gutterBottom variant="h5" component="div">
                         {story.name}
                     </Typography>
+                    {showText &&
                     <Typography variant="body2" color="text.secondary">
                         {story.text}
                     </Typography>
+                    }
                 </CardContent>
             </Card>
         </Container>
