@@ -20,7 +20,11 @@ function App() {
             .get()
             .then((querySnapshot) => {
                     if (querySnapshot.docs) {
-                        setStories(querySnapshot.docs.map(d => d.data()))
+                        setStories(querySnapshot.docs.map(d => {
+                                let story = d.data()
+                                story.id = d.id
+                                return story
+                            }))
                     }
                 }
             )
@@ -35,14 +39,16 @@ function App() {
 
     return stories ? (
             <div id="pagepiling" className="App">
-                <div className="section">
+                <div className="section sec1">
                     <About/>
+                </div>
+                <div className="section pp-scrollable">
+                    <StoryPage story={stories.filter(function(obj) {
+                      return obj.approved
+                    })[0]} />
                 </div>
                 <div className="section pp-scrollable ">
                     <AllStoriesPage stories={stories}/>
-                </div>
-                <div className="section pp-scrollable">
-                    <StoryPage story={stories[Math.floor(Math.random() * stories.length)]}/>
                 </div>
             </div>
         ) :
