@@ -1,4 +1,11 @@
-import Firebase from "../Firebase";
+import {Firebase} from "../Firebase";
+
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+
 
 const NewStory = () => {
     const submitForm = (event) => {
@@ -15,24 +22,33 @@ const NewStory = () => {
     return (
         <div>
             <h1>Submit your story</h1>
-            <div className="reg">
+            <div>
                 <form id="regForm" onSubmit={submitForm}>
-                    <label>
-                        Full Name:
-                        <input name="name" type="text"/>
-                    </label>
+                <TextField
+                    id="name"
+                    name="name"
+                    label="Your name"
+                    helperText="Providing your name is optional. Publicly redact your name by checking the box on the right."
+                    variant="outlined"
+                    InputProps={{
+                    endAdornment: <InputAdornment position="end"><Checkbox name="redact"/></InputAdornment>
+                    }}
+                />
 
-                    <label>
-                        Your Story:
-                        <textarea name="text"/>
-                    </label>
+                <TextField
+                    id="text"
+                    name="text"
+                    label="Your story"
+                    helperText="Share as many or as few details as you'd like about your experience with NYPD gang policing here."
+                    variant="outlined"
+                    multiline
+                />
 
-                    <label>
-                        Redact your name:
-                        <input type="checkbox" name ="redact"/>
-                    </label>
-
-                    <input type="submit" value="Submit"/>
+                <Box mx="auto">
+                    <Button variant="contained" color="primary" type="submit" disableElevation>
+                        Submit
+                    </Button>
+                </Box>
                     
                 </form>
             </div>
