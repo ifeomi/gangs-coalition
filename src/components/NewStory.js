@@ -7,6 +7,7 @@ const NewStory = () => {
         db.collection("stories").add({
             name: event.target.name.value,
             text: event.target.text.value,
+            redact: event.target.redact.value,
             // TODO: add image url
             approved: false
         })
@@ -25,7 +26,14 @@ const NewStory = () => {
                         Your Story:
                         <textarea name="text"/>
                     </label>
+
+                    <label>
+                        Redact your name:
+                        <input type="checkbox" name ="redact"/>
+                    </label>
+
                     <input type="submit" value="Submit"/>
+                    
                 </form>
             </div>
         </div>
