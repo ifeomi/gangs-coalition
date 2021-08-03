@@ -39,3 +39,19 @@ a {
   text-decoration: none;
   color: #FC5A5A;
 }
+
+#regForm{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+}
+.reginput {
+  padding: 10px;
+
+  width: 100%;
+}
+.reginput-submit {
+
+  width: 10%;
+}
