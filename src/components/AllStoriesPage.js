@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Modal from '@material-ui/core/Modal'
 import StoryPage from './StoryPage'
+
 const AllStoriesPage = ({ stories }) => {
     const Thumbnail = ({ story }) => {
         const [open, setOpen] = useState(false);

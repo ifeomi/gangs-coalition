@@ -1,16 +1,32 @@
-import Firebase from "../Firebase";
+import {storage, Firebase} from "../Firebase";
 
 const NewStory = () => {
     const submitForm = (event) => {
         event.preventDefault();
         const db = Firebase.firestore();
-        db.collection("stories").add({
+        const newStory = {
             name: event.target.name.value,
             text: event.target.text.value,
             redact: event.target.redact.value,
-            // TODO: add image url
             approved: false
-        })
+        }
+
+        const uploadedFile = event.target.image.files;
+
+        // if image is uploaded, add it to the story
+        if (uploadedFile.length > 0) {
+            const image = uploadedFile[0];
+            const storageRef = storage.ref();
+            const imageRef = storageRef.child(image.name);
+            imageRef.put(image).then((r) => {
+                r.ref.getDownloadURL().then((url) => {
+                    newStory.image = url
+                    db.collection("stories").add(newStory)
+                });
+            });
+        } else {
+            db.collection("stories").add(newStory)
+        }
     }
     return (
         <div>
@@ -30,6 +46,11 @@ const NewStory = () => {
                     <label>
                         Redact your name:
                         <input type="checkbox" name ="redact"/>
+                    </label>
+
+                    <label>
+                        Upload an image:
+                        <input type="file" name="image" accept="image/x-png,image/jpeg" />
                     </label>
 
                     <input type="submit" value="Submit"/>
