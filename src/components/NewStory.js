@@ -35,7 +35,10 @@ const NewStory = () => {
         setSubmitted(true)
     }
     return submitted ? 
-        <div>Thank you for sharing your story with us!</div> : (
+        <div>
+            <h1>Story Received</h1>
+            Thank you for sharing your story with us!
+        </div> : (
         <div>
             <h1>Submit your story</h1>
             <div className="reg">
