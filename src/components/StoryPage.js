@@ -11,9 +11,9 @@ const StoryPage = ({story, showTitle, showText}) => {
     if (story.image === undefined) {
         story.image = image_placeholder
     }
+
     if (story.redact === "on") {
         story.name = "Redacted"
-    
     }
 
     return (
