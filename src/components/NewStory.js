@@ -1,4 +1,5 @@
 import {storage, Firebase} from "../Firebase";
+import {useState} from 'react'
 
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -8,6 +9,9 @@ import Box from '@material-ui/core/Box';
 
 
 const NewStory = () => {
+
+    const [submitted, setSubmitted] = useState(false)
+
     const submitForm = (event) => {
         event.preventDefault();
         const db = Firebase.firestore();
@@ -34,8 +38,14 @@ const NewStory = () => {
         } else {
             db.collection("stories").add(newStory)
         }
+
+        setSubmitted(true)
     }
-    return (
+    return submitted ? 
+        <div>
+            <h1>Story Received</h1>
+            Thank you for sharing your story with us!
+        </div> : (
         <div>
             <h1>Submit your story</h1>
             <div>
