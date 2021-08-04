@@ -39,3 +39,7 @@ a {
   text-decoration: none;
   color: #FC5A5A;
 }
+
+::-webkit-file-upload-button {
+  display: none;
+}
